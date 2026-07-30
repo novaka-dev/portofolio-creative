@@ -48,10 +48,10 @@ export const works: WorkItem[] = [
     src: "/works/Thumbnail Fantasy 1.jpg",
   },
 
-  { id: "p1", type: "image", category: "pfp-samples", src: "/works/pfp-1.jpg" },
-  { id: "p2", type: "image", category: "pfp-samples", src: "/works/pfp-2.jpg" },
-  { id: "p3", type: "image", category: "pfp-samples", src: "/works/pfp-3.jpg" },
-  { id: "p4", type: "image", category: "pfp-samples", src: "/works/pfp-4.jpg" },
+  // { id: "p1", type: "image", category: "pfp-samples", src: "" },
+  // { id: "p2", type: "image", category: "pfp-samples", src: "" },
+  // { id: "p3", type: "image", category: "pfp-samples", src: "" },
+  // { id: "p4", type: "image", category: "pfp-samples", src: "" },
 
   {
     id: "v1",

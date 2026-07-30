@@ -35,7 +35,7 @@ export default function Contact() {
 
       <div className="flex items-center justify-center gap-4">
         <Link
-          href="https://discord.com/users/your_discord_id"
+          href="https://discord.com/users/1121703305450635294"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center justify-center w-12 h-12 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm text-white/70 transition-all duration-300 hover:border-[#5865F2]/60 hover:bg-[#5865F2]/10 hover:text-[#5865F2] hover:-translate-y-0.5"
@@ -44,7 +44,7 @@ export default function Contact() {
         </Link>
 
         <Link
-          href="https://instagram.com/username_kamu"
+          href="https://instagram.com/vakuy.testa"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center justify-center w-12 h-12 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm text-white/70 transition-all duration-300 hover:border-pink-400/60 hover:bg-pink-400/10 hover:text-pink-400 hover:-translate-y-0.5"

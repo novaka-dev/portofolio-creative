@@ -12,7 +12,7 @@ export default function WorksGrid({
   const items = works.filter((w: WorkItem) => w.category === category);
 
   if (items.length === 0) {
-    return <p className="text-sm text-neutral-500">Belum ada karya.</p>;
+    return <p className="text-sm text-neutral-500">No works yet.</p>;
   }
 
   if (category === "videos") {

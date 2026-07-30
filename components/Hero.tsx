@@ -16,7 +16,7 @@ export default function Hero() {
         {/* Profile */}
         <div
           className="
-            relative w-40 h-40 rounded-4xl overflow-hidden mb-10
+            relative w-40 h-40 overflow-hidden mb-10
             transition-all duration-500 ease-out
             hover:scale-105
             hover:-translate-y-2
