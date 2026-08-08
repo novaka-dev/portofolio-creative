@@ -162,7 +162,8 @@ export const works: WorkItem[] = [
     src: "/works/banner/yt/banner-anime.jpg",
   },
 
-  // { id: "p1", type: "image", category: "pfp-samples", src: "" },
+  { id: "p1", type: "image", category: "pfp-samples", src: "/works/pfp/5.png" },
+  { id: "p2", type: "image", category: "pfp-samples", src: "/works/pfp/4.png" },
   // { id: "p2", type: "image", category: "pfp-samples", src: "" },
   // { id: "p3", type: "image", category: "pfp-samples", src: "" },
   // { id: "p4", type: "image", category: "pfp-samples", src: "" },
