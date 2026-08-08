@@ -1,8 +1,16 @@
+export type DesignSubCategory =
+  | "thumbnail"
+  | "carousel"
+  | "poster"
+  | "banner"
+  | "banner-youtube";
+
 export type ImageWork = {
   id: string;
   type: "image";
   category: string;
   src: string;
+  subCategory?: DesignSubCategory;
 };
 
 export type VideoWork = {
@@ -17,35 +25,141 @@ export type WorkItem = ImageWork | VideoWork;
 
 // aspect: dipakai buat nyeragamin ukuran card di grid per kategori
 export const categories = [
-  { slug: "thumbnails", label: "THUMBNAILS", aspect: "aspect-video" },
+  { slug: "design", label: "DESIGN", aspect: "aspect-video" },
   { slug: "pfp-samples", label: "PFP SAMPLES", aspect: "aspect-square" },
   { slug: "videos", label: "VIDEOS", aspect: "" },
 ];
 
 export const works: WorkItem[] = [
+  // --- DESIGN: Thumbnail (YouTube 16:9) ---
   {
     id: "t1",
     type: "image",
-    category: "thumbnails",
-    src: "/works/Thumbnail Fantasy 1.jpg",
+    category: "design",
+    subCategory: "thumbnail",
+    src: "/works/thumbnail/thumbnail fantasy 1.jpg",
   },
   {
     id: "t2",
     type: "image",
-    category: "thumbnails",
-    src: "/works/Thumbnail Fantasy 1.jpg",
+    category: "design",
+    subCategory: "thumbnail",
+    src: "/works/thumbnail/thumbnail live pinpin p2.png",
   },
   {
     id: "t3",
     type: "image",
-    category: "thumbnails",
-    src: "/works/Thumbnail Fantasy 1.jpg",
+    category: "design",
+    subCategory: "thumbnail",
+    src: "/works/thumbnail/maxresdefault.webp",
+  },
+
+  // --- DESIGN: Carousel (geser kiri-kanan) ---
+  // Masukkan semua desain carousel lo di sini (IG, TikTok, dll.)
+  {
+    id: "c1",
+    type: "image",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_01.gif",
   },
   {
-    id: "t4",
+    id: "c2",
     type: "image",
-    category: "thumbnails",
-    src: "/works/Thumbnail Fantasy 1.jpg",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_02.gif",
+  },
+  {
+    id: "c3",
+    type: "image",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_03.gif",
+  },
+  {
+    id: "c4",
+    type: "image",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_04.gif",
+  },
+  {
+    id: "c5",
+    type: "image",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_05.gif",
+  },
+  {
+    id: "c6",
+    type: "image",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_06.gif",
+  },
+  {
+    id: "c7",
+    type: "image",
+    category: "design",
+    subCategory: "carousel",
+    src: "/works/carousel/carousel_07.gif",
+  },
+
+  // --- DESIGN: Poster (portrait / square) ---
+  // Masukkan poster, flyer, konten portrait di sini
+  {
+    id: "pos1",
+    type: "image",
+    category: "design",
+    subCategory: "poster",
+    src: "/works/poster/Vintage Kenangan.jpg",
+  },
+  {
+    id: "pos2",
+    type: "image",
+    category: "design",
+    subCategory: "poster",
+    src: "/works/carousel/carousel_01.gif",
+  },
+  {
+    id: "pos3",
+    type: "image",
+    category: "design",
+    subCategory: "poster",
+    src: "/works/poster/masjid-finance.png",
+  },
+
+  // --- DESIGN: Banner ---
+  {
+    id: "b1",
+    type: "image",
+    category: "design",
+    subCategory: "banner",
+    src: "/works/banner/banner-anime-zenin2.png",
+  },
+  {
+    id: "b2",
+    type: "image",
+    category: "design",
+    subCategory: "banner",
+    src: "/works/banner/Banner.png",
+  },
+  {
+    id: "b3",
+    type: "image",
+    category: "design",
+    subCategory: "banner",
+    src: "/works/banner/Header Anime.png",
+  },
+
+  // --- DESIGN: Banner YouTube (channel art 16:9 safe zone) ---
+  {
+    id: "by1",
+    type: "image",
+    category: "design",
+    subCategory: "banner-youtube",
+    src: "/works/banner/yt/banner-anime.jpg",
   },
 
   // { id: "p1", type: "image", category: "pfp-samples", src: "" },
