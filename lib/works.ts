@@ -53,6 +53,13 @@ export const works: WorkItem[] = [
     subCategory: "thumbnail",
     src: "/works/thumbnail/maxresdefault.webp",
   },
+  {
+    id: "t4",
+    type: "image",
+    category: "design",
+    subCategory: "thumbnail",
+    src: "/works/thumbnail/thumbnail rombak akun.png",
+  },
 
   // --- DESIGN: Carousel (geser kiri-kanan) ---
   // Masukkan semua desain carousel lo di sini (IG, TikTok, dll.)
@@ -209,6 +216,27 @@ export const works: WorkItem[] = [
     category: "videos",
     platform: "tiktok",
     url: "https://www.tiktok.com/@vakure/video/7550304711212207368?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+  },
+  {
+    id: "v7",
+    type: "video",
+    category: "videos",
+    platform: "tiktok",
+    url: "https://www.tiktok.com/@pinpixmgce5/video/7670560178290314517?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+  },
+  {
+    id: "v8",
+    type: "video",
+    category: "videos",
+    platform: "tiktok",
+    url: "https://www.tiktok.com/@pinpixmgce5/video/7671622030151994645?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+  },
+  {
+    id: "v8",
+    type: "video",
+    category: "videos",
+    platform: "youtube",
+    url: "https://youtu.be/Vl_7DLbkCeg", // ganti link TikTok kamu
   },
 
   // project pribadi kamu, taro di sini

@@ -7,6 +7,8 @@ import { works } from "@/lib/works";
 import type { DesignSubCategory } from "@/lib/works";
 import DesignCarousel from "@/components/DesignCarousel";
 import Contact from "@/components/Contact";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 // ---------------------------------------------------------------------------
 // Sub-category configuration
@@ -201,7 +203,7 @@ export default function DesignPage() {
 
       {/* ---- Content area ---- */}
       {isCarousel ? (
-        /* Carousel layout */
+        /* Carousel layout — no lightbox */
         items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <p className="text-neutral-600 text-sm">Belum ada karya di sini.</p>
@@ -218,35 +220,37 @@ export default function DesignPage() {
           </div>
         )
       ) : isMasonry ? (
-        /* Masonry layout — poster & flyer, ngikut rasio asli gambar */
+        /* Masonry layout — poster & flyer */
         items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <p className="text-neutral-600 text-sm">Belum ada karya di sini.</p>
             <p className="text-neutral-700 text-xs mt-1">Tambahkan di lib/works.ts</p>
           </div>
         ) : (
-          <div
-            style={{
-              columns: "2",
-              columnGap: "1rem",
-            }}
-            className="sm:[columns:3]"
+          <PhotoProvider
+            maskOpacity={0.85}
+            bannerVisible={false}
+            toolbarRender={() => null}
           >
-            {items.map((item) => (
-              <div
-                key={item.id}
-                className="break-inside-avoid mb-4 rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={item.src}
-                  alt=""
-                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+            <div
+              style={{ columns: "2", columnGap: "1rem" }}
+              className="sm:[columns:3]"
+            >
+              {items.map((item) => (
+                <PhotoView key={item.id} src={item.src}>
+                  <div className="break-inside-avoid mb-4 rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group cursor-zoom-in">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.src}
+                      alt=""
+                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </PhotoView>
+              ))}
+            </div>
+          </PhotoProvider>
         )
       ) : activeTab === "banner" ? (
         /* Banner tab — dua section: Banner biasa + Banner YouTube */
@@ -259,21 +263,22 @@ export default function DesignPage() {
             {items.length === 0 ? (
               <p className="text-neutral-700 text-sm py-6">Belum ada banner. Tambahkan di lib/works.ts</p>
             ) : (
-              <div className={`grid ${gridCols} gap-4`}>
-                {items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="relative w-full aspect-[3/1] rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group"
-                  >
-                    <Image
-                      src={item.src}
-                      alt=""
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                ))}
-              </div>
+              <PhotoProvider maskOpacity={0.85} bannerVisible={false} toolbarRender={() => null}>
+                <div className={`grid ${gridCols} gap-4`}>
+                  {items.map((item) => (
+                    <PhotoView key={item.id} src={item.src}>
+                      <div className="relative w-full aspect-[3/1] rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group cursor-zoom-in">
+                        <Image
+                          src={item.src}
+                          alt=""
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    </PhotoView>
+                  ))}
+                </div>
+              </PhotoProvider>
             )}
           </div>
 
@@ -312,11 +317,39 @@ export default function DesignPage() {
             {ytBannerItems.length === 0 ? (
               <p className="text-neutral-700 text-sm py-6">Belum ada banner YouTube. Tambahkan di lib/works.ts</p>
             ) : (
-              <div className={`grid ${ytGridCols} gap-4 transition-all duration-300`}>
-                {ytBannerItems.map((item) => (
+              <PhotoProvider maskOpacity={0.85} bannerVisible={false} toolbarRender={() => null}>
+                <div className={`grid ${ytGridCols} gap-4 transition-all duration-300`}>
+                  {ytBannerItems.map((item) => (
+                    <PhotoView key={item.id} src={item.src}>
+                      <div className="relative w-full aspect-[6/1] rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group cursor-zoom-in">
+                        <Image
+                          src={item.src}
+                          alt=""
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                    </PhotoView>
+                  ))}
+                </div>
+              </PhotoProvider>
+            )}
+          </div>
+        </div>
+      ) : (
+        /* Grid layout — thumbnail */
+        items.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <p className="text-neutral-600 text-sm">Belum ada karya di sini.</p>
+            <p className="text-neutral-700 text-xs mt-1">Tambahkan di lib/works.ts</p>
+          </div>
+        ) : (
+          <PhotoProvider maskOpacity={0.85} bannerVisible={false} toolbarRender={() => null}>
+            <div className={`grid ${gridCols} gap-4 transition-all duration-300`}>
+              {items.map((item) => (
+                <PhotoView key={item.id} src={item.src}>
                   <div
-                    key={item.id}
-                    className="relative w-full aspect-[6/1] rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group"
+                    className={`relative w-full ${currentConfig.aspect} rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group cursor-zoom-in`}
                   >
                     <Image
                       src={item.src}
@@ -325,34 +358,10 @@ export default function DesignPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      ) : (
-        /* Grid layout — untuk thumbnail */
-        items.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-24 text-center">
-            <p className="text-neutral-600 text-sm">Belum ada karya di sini.</p>
-            <p className="text-neutral-700 text-xs mt-1">Tambahkan di lib/works.ts</p>
-          </div>
-        ) : (
-          <div className={`grid ${gridCols} gap-4 transition-all duration-300`}>
-            {items.map((item) => (
-              <div
-                key={item.id}
-                className={`relative w-full ${currentConfig.aspect} rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group`}
-              >
-                <Image
-                  src={item.src}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+                </PhotoView>
+              ))}
+            </div>
+          </PhotoProvider>
         )
       )}
 

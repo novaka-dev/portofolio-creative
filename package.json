@@ -15,6 +15,7 @@
     "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-photo-view": "^1.2.7",
     "react-player": "^3.4.0",
     "react-social-media-embed": "^2.5.18"
   },

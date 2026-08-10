@@ -90,7 +90,7 @@ export default function DesignCarousel({
         </div>
       </div>
 
-      {/* Prev / Next buttons */}
+      {/* Prev / Next buttons — always visible on mobile, fade in on desktop hover */}
       <button
         onClick={scrollPrev}
         aria-label="Previous slide"
@@ -99,9 +99,9 @@ export default function DesignCarousel({
           w-9 h-9 flex items-center justify-center
           rounded-full bg-black/70 border border-white/10
           text-white backdrop-blur-sm
-          opacity-0 group-hover:opacity-100
+          opacity-70 sm:opacity-0 sm:group-hover:opacity-100
           transition-opacity duration-200
-          hover:bg-white/10
+          hover:bg-white/10 active:bg-white/10
         "
       >
         <ChevronLeft size={18} />
@@ -114,9 +114,9 @@ export default function DesignCarousel({
           w-9 h-9 flex items-center justify-center
           rounded-full bg-black/70 border border-white/10
           text-white backdrop-blur-sm
-          opacity-0 group-hover:opacity-100
+          opacity-70 sm:opacity-0 sm:group-hover:opacity-100
           transition-opacity duration-200
-          hover:bg-white/10
+          hover:bg-white/10 active:bg-white/10
         "
       >
         <ChevronRight size={18} />
