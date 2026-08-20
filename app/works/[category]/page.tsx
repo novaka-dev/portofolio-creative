@@ -3,9 +3,9 @@ import { categories } from "@/lib/works";
 import WorksGrid from "@/components/WorksGrid";
 import Contact from "@/components/Contact";
 
-export function generateStaticParams() {
-  return categories.map((c) => ({ category: c.slug }));
-}
+// Selalu render fresh agar data baru dari Supabase langsung tampil
+export const dynamic = "force-dynamic";
+
 
 export default async function CategoryPage({
   params,

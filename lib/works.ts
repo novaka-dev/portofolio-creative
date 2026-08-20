@@ -11,6 +11,7 @@ export type ImageWork = {
   category: string;
   src: string;
   subCategory?: DesignSubCategory;
+  groupName?: string;
 };
 
 export type VideoWork = {

@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Lock } from "lucide-react";
 import CategoryButton from "./CategoryButton";
 import { categories } from "@/lib/works";
+
 
 export default function Hero() {
   return (
@@ -66,6 +69,19 @@ export default function Hero() {
               <CategoryButton href={`/works/${c.slug}`} label={c.label} />
             </div>
           ))}
+        </div>
+
+        {/* Admin link — subtle, buat yang notice aja */}
+        <div className="mt-6 flex items-center gap-2 justify-center">
+          <span className="w-4 h-px bg-neutral-800" />
+          <Link
+            href="/admin/login"
+            className="inline-flex items-center gap-1.5 text-[10px] text-neutral-700 hover:text-neutral-400 transition-colors duration-300 tracking-[0.2em] uppercase"
+          >
+            <Lock size={9} />
+            admin
+          </Link>
+          <span className="w-4 h-px bg-neutral-800" />
         </div>
       </div>
 

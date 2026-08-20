@@ -52,6 +52,11 @@ export default function Contact() {
           <InstagramIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
         </Link>
       </div>
+
+      {/* Watermark */}
+      <p className="mt-8 text-[10px] text-neutral-600 tracking-[0.25em] uppercase select-none">
+        coded by vaka ganteng ©
+      </p>
     </section>
   );
 }

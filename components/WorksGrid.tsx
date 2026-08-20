@@ -1,15 +1,69 @@
 import Image from "next/image";
-import { works, WorkItem } from "@/lib/works";
+import { works as staticWorks, WorkItem } from "@/lib/works";
 import VideoEmbed from "./VideoEmbed";
+import { supabaseAdmin } from "@/lib/supabase-admin";
+import type { DbWork } from "@/lib/supabase";
 
-export default function WorksGrid({
+// Konversi DbWork dari Supabase ke WorkItem
+function dbToWorkItem(dbWork: DbWork): WorkItem {
+  if (dbWork.type === "image") {
+    return {
+      id: dbWork.id,
+      type: "image",
+      category: dbWork.category,
+      subCategory: dbWork.sub_category as
+        | "thumbnail"
+        | "carousel"
+        | "poster"
+        | "banner"
+        | "banner-youtube"
+        | undefined,
+      src: dbWork.src ?? "",
+    };
+  }
+  return {
+    id: dbWork.id,
+    type: "video",
+    category: dbWork.category,
+    platform: (dbWork.platform ?? "cloudinary") as "youtube" | "tiktok" | "cloudinary",
+    url: dbWork.url ?? "",
+  };
+}
+
+async function fetchDbWorks(category: string): Promise<WorkItem[]> {
+  try {
+    const { data, error } = await supabaseAdmin
+      .from("works")
+      .select("*")
+      .eq("category", category)
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("[WorksGrid] Supabase error:", error.message);
+      return [];
+    }
+    if (!data) return [];
+    return (data as DbWork[]).map(dbToWorkItem);
+  } catch (e) {
+    // Kalau Supabase belum di-setup, fallback ke data kosong
+    console.error("[WorksGrid] fetch failed:", e);
+    return [];
+  }
+}
+
+export default async function WorksGrid({
   category,
   aspect,
 }: {
   category: string;
   aspect: string;
 }) {
-  const items = works.filter((w: WorkItem) => w.category === category);
+  // Fetch dari Supabase (data baru dari dashboard)
+  const dbItems = await fetchDbWorks(category);
+
+  // Gabungkan: data baru dari DB di depan, data lama dari works.ts di belakang
+  const staticItems = staticWorks.filter((w: WorkItem) => w.category === category);
+  const items: WorkItem[] = [...dbItems, ...staticItems];
 
   if (items.length === 0) {
     return <p className="text-sm text-neutral-500">No works yet.</p>;
@@ -96,7 +150,7 @@ export default function WorksGrid({
             key={item.id}
             className={`relative w-full ${aspect} rounded-2xl overflow-hidden`}
           >
-            <Image src={item.src} alt="" fill className="object-cover" />
+            <Image src={item.src} alt="" fill className="object-cover" unoptimized={item.src.startsWith("https://")} />
           </div>
         ) : null,
       )}
