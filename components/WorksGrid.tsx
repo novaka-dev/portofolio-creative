@@ -150,7 +150,13 @@ export default async function WorksGrid({
             key={item.id}
             className={`relative w-full ${aspect} rounded-2xl overflow-hidden`}
           >
-            <Image src={item.src} alt="" fill className="object-cover" unoptimized={item.src.startsWith("https://")} />
+            <Image
+              src={item.src}
+              alt={`Karya desain ${item.subCategory ?? item.category} oleh Novaka`}
+              fill
+              className="object-cover"
+              unoptimized={item.src.startsWith("https://")}
+            />
           </div>
         ) : null,
       )}

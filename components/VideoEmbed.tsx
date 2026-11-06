@@ -23,7 +23,22 @@ export default function VideoEmbed({
     );
   }
 
-  // youtube & tiktok — TIDAK DIUBAH
+  // TikTok — portrait 9:16
+  if (platform === "tiktok") {
+    return (
+      <div className="relative w-full aspect-[9/16] max-w-[340px] mx-auto rounded-2xl overflow-hidden bg-neutral-900">
+        <ReactPlayer
+          src={url}
+          width="100%"
+          height="100%"
+          controls
+          style={{ position: "absolute", top: 0, left: 0 }}
+        />
+      </div>
+    );
+  }
+
+  // YouTube — landscape 16:9
   return (
     <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-neutral-900">
       <ReactPlayer

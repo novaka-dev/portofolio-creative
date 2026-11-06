@@ -3,6 +3,13 @@ import { works } from "@/lib/works";
 import type { DesignSubCategory } from "@/lib/works";
 import DesignClient from "./_DesignClient";
 import type { DesignItem } from "./_DesignClient";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Design",
+  description:
+    "Karya desain grafis Novaka: thumbnail YouTube, carousel IG, poster, dan banner.",
+};
 
 // Fetch design items dari Supabase
 async function getDbDesignItems(): Promise<DesignItem[]> {

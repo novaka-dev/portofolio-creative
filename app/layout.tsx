@@ -8,7 +8,24 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Novaka Portofolio",
+  title: {
+    default: "Novaka — Graphic Designer & Video Editor",
+    template: "%s — Novaka",
+  },
+  description:
+    "Portofolio kreatif Novaka: desain grafis, thumbnail YouTube, carousel IG, poster, banner, dan video editing.",
+  openGraph: {
+    title: "Novaka — Graphic Designer & Video Editor",
+    description:
+      "Lihat karya-karya desain dan video editing Novaka di sini.",
+    type: "website",
+    locale: "id_ID",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Novaka — Graphic Designer & Video Editor",
+    description: "Portofolio desain grafis & video editing.",
+  },
 };
 
 export default function RootLayout({

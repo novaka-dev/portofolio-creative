@@ -27,7 +27,6 @@ export type WorkItem = ImageWork | VideoWork;
 // aspect: dipakai buat nyeragamin ukuran card di grid per kategori
 export const categories = [
   { slug: "design", label: "DESIGN", aspect: "aspect-video" },
-  { slug: "pfp-samples", label: "PFP SAMPLES", aspect: "aspect-square" },
   { slug: "videos", label: "VIDEOS", aspect: "" },
 ];
 
@@ -63,7 +62,6 @@ export const works: WorkItem[] = [
   },
 
   // --- DESIGN: Carousel (geser kiri-kanan) ---
-  // Masukkan semua desain carousel lo di sini (IG, TikTok, dll.)
   {
     id: "c1",
     type: "image",
@@ -115,7 +113,6 @@ export const works: WorkItem[] = [
   },
 
   // --- DESIGN: Poster (portrait / square) ---
-  // Masukkan poster, flyer, konten portrait di sini
   {
     id: "pos1",
     type: "image",
@@ -128,7 +125,7 @@ export const works: WorkItem[] = [
     type: "image",
     category: "design",
     subCategory: "poster",
-    src: "/works/carousel/carousel_01.gif",
+    src: "/works/poster/Artboarsdd 3.jpg",
   },
   {
     id: "pos3",
@@ -136,6 +133,13 @@ export const works: WorkItem[] = [
     category: "design",
     subCategory: "poster",
     src: "/works/poster/masjid-finance.png",
+  },
+  {
+    id: "pos4",
+    type: "image",
+    category: "design",
+    subCategory: "poster",
+    src: "/works/poster/Bunga Aster.png",
   },
 
   // --- DESIGN: Banner ---
@@ -170,114 +174,102 @@ export const works: WorkItem[] = [
     src: "/works/banner/yt/banner-anime.jpg",
   },
 
-  { id: "p1", type: "image", category: "pfp-samples", src: "/works/pfp/5.png" },
-  { id: "p2", type: "image", category: "pfp-samples", src: "/works/pfp/4.png" },
-  // { id: "p2", type: "image", category: "pfp-samples", src: "" },
-  // { id: "p3", type: "image", category: "pfp-samples", src: "" },
-  // { id: "p4", type: "image", category: "pfp-samples", src: "" },
-
+  // --- VIDEOS ---
   {
     id: "v1",
     type: "video",
     category: "videos",
     platform: "youtube",
-    url: "https://youtu.be/WfbismJA1y4?si=OV1t59diNNHxet0i", // ganti link YT kamu
+    url: "https://youtu.be/WfbismJA1y4?si=OV1t59diNNHxet0i",
   },
   {
     id: "v2",
     type: "video",
     category: "videos",
     platform: "tiktok",
-    url: "https://www.tiktok.com/@vakure/video/7435215762664934674?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+    url: "https://www.tiktok.com/@vakure/video/7435215762664934674?is_from_webapp=1&sender_device=pc",
   },
   {
     id: "v3",
     type: "video",
     category: "videos",
     platform: "youtube",
-    url: "https://youtu.be/OUo6RDpM3h4?si=7zIak-AlVjzr5wQT", // ganti link TikTok kamu
+    url: "https://youtu.be/OUo6RDpM3h4?si=7zIak-AlVjzr5wQT",
   },
   {
     id: "v4",
     type: "video",
     category: "videos",
     platform: "tiktok",
-    url: "https://www.tiktok.com/@vakure/video/7511212286426631445?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+    url: "https://www.tiktok.com/@vakure/video/7511212286426631445?is_from_webapp=1&sender_device=pc",
   },
   {
     id: "v5",
     type: "video",
     category: "videos",
     platform: "tiktok",
-    url: "https://www.tiktok.com/@vakure/video/7517518819678489861?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+    url: "https://www.tiktok.com/@vakure/video/7517518819678489861?is_from_webapp=1&sender_device=pc",
   },
   {
     id: "v6",
     type: "video",
     category: "videos",
     platform: "tiktok",
-    url: "https://www.tiktok.com/@vakure/video/7550304711212207368?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+    url: "https://www.tiktok.com/@vakure/video/7550304711212207368?is_from_webapp=1&sender_device=pc",
   },
   {
     id: "v7",
     type: "video",
     category: "videos",
     platform: "tiktok",
-    url: "https://www.tiktok.com/@pinpixmgce5/video/7670560178290314517?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+    url: "https://www.tiktok.com/@pinpixmgce5/video/7670560178290314517?is_from_webapp=1&sender_device=pc",
   },
   {
     id: "v8",
     type: "video",
     category: "videos",
     platform: "tiktok",
-    url: "https://www.tiktok.com/@pinpixmgce5/video/7671622030151994645?is_from_webapp=1&sender_device=pc", // ganti link TikTok kamu
+    url: "https://www.tiktok.com/@pinpixmgce5/video/7671622030151994645?is_from_webapp=1&sender_device=pc",
   },
   {
-    id: "v8",
+    id: "v9",
     type: "video",
     category: "videos",
     platform: "youtube",
-    url: "https://youtu.be/Vl_7DLbkCeg", // ganti link TikTok kamu
+    url: "https://youtu.be/Vl_7DLbkCeg",
   },
 
-  // project pribadi kamu, taro di sini
+  // --- PROJECT PRIBADI (Cloudinary) ---
   {
     id: "pr1",
-    type: "video",
-    category: "videos",
-    platform: "cloudinary",
-    url: "https://res.cloudinary.com/phnoxroh/video/upload/v1785394403/Portofolio%20Exstore/17%20FEB/OFFICIAL_MOMY_2_FINAL_a412ct.mp4",
-  },
-  {
-    id: "pr2",
     type: "video",
     category: "videos",
     platform: "cloudinary",
     url: "https://res.cloudinary.com/phnoxroh/video/upload/v1785394064/Portofolio%20Exstore/18%20FEB/rev/EFOOTBALL_2_REV_u4mmjv.mp4",
   },
   {
-    id: "pr3",
+    id: "pr2",
     type: "video",
     category: "videos",
     platform: "cloudinary",
     url: "https://res.cloudinary.com/phnoxroh/video/upload/v1785393880/Portofolio%20Exstore/02%20MARET/ML_10_FIN_mtjbxd.mp4",
   },
   {
-    id: "pr4",
+    id: "pr3",
     type: "video",
     category: "videos",
     platform: "cloudinary",
     url: "https://res.cloudinary.com/phnoxroh/video/upload/v1785393974/Portofolio%20Exstore/03%20MARET/ML_11_FIN_ke7rsc.mp4",
   },
   {
-    id: "pr5",
+    id: "pr4",
     type: "video",
     category: "videos",
     platform: "cloudinary",
     url: "https://res.cloudinary.com/phnoxroh/video/upload/v1785394005/Portofolio%20Exstore/20%20FEB/revisi/0219_1_1_1_imfzyg.mp4",
   },
   {
-    id: "pr6",
+    id: "pr5",
     type: "video",
     category: "videos",
     platform: "cloudinary",

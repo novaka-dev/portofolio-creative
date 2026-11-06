@@ -78,7 +78,7 @@ export default function DesignCarousel({
               >
                 <Image
                   src={item.src}
-                  alt=""
+                  alt="Slide carousel desain oleh Novaka"
                   fill
                   unoptimized
                   className="object-cover transition-transform duration-500 hover:scale-105"

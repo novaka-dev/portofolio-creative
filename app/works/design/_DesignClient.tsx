@@ -307,7 +307,7 @@ export default function DesignClient({ items, ytBannerItems }: DesignClientProps
                       <div className="relative w-full aspect-[3/1] rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group cursor-zoom-in">
                         <Image
                           src={item.src}
-                          alt=""
+                          alt={`Banner ${item.groupName ?? "desain"} oleh Novaka`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -360,7 +360,7 @@ export default function DesignClient({ items, ytBannerItems }: DesignClientProps
                       <div className="relative w-full aspect-[6/1] rounded-2xl overflow-hidden bg-neutral-900 ring-1 ring-white/5 group cursor-zoom-in">
                         <Image
                           src={item.src}
-                          alt=""
+                          alt={`Banner ${item.groupName ?? "desain"} oleh Novaka`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
@@ -389,7 +389,7 @@ export default function DesignClient({ items, ytBannerItems }: DesignClientProps
                   >
                     <Image
                       src={item.src}
-                      alt=""
+                      alt={`Thumbnail desain oleh Novaka`}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
